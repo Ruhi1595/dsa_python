@@ -1,0 +1,28 @@
+name: Run Python Scripts
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run scripts
+        run: |
+          python Arrays/two_sum.py
+          python Arrays/contains_duplicate.py
+          python Arrays/valid_anagram.py
+          python TwoPointers/valid_palindrome.py
+          python SlidingWindow_Greedy/best_time_buy_sell_stock.py
